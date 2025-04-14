@@ -1,6 +1,7 @@
 plugins {
     id("java")
     application
+    checkstyle
 }
 
 group = "hexlet.code"
@@ -21,4 +22,13 @@ tasks.test {
 gradle
 application {
     mainClass = "hexlet.code.App"
+}
+
+tasks.getByName("run", JavaExec::class) {
+    standardInput = System.`in`
+}
+
+checkstyle {
+    toolVersion = "10.12.5"  // Актуальная версия
+    configFile = file("config/checkstyle/checkstyle.xml")  // Путь к конфигу
 }
