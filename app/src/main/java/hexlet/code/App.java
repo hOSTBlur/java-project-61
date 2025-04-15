@@ -6,8 +6,14 @@ public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Please enter the game number and press Enter.\n1 - Greet\n2 - Even\n3 - Exit");
+        System.out.println("""
+                Please enter the game number and press Enter.
+                1 - Greet
+                2 - Even
+                0 - Exit""");
+        System.out.print("Your choice: ");
         int userChoice = Integer.parseInt(scanner.nextLine());
+        System.out.println();
         switch (userChoice) {
             case 1:
                 System.out.println("Welcome to the Brian Game!");
@@ -24,6 +30,5 @@ public class App {
                 System.out.println("Incorrect choice, please try again");
         }
 
-        //Cli.askUserName();
     }
 }

@@ -20,8 +20,8 @@ public class Even {
             var questNum = random.nextInt(100);
 
             System.out.println("Question: " + questNum);
+            System.out.print("Your answer: ");
             String userAnswer = scanner.nextLine();
-            System.out.println("Your answer: " + userAnswer);
 
             if (questNum % 2 == 0) {
                 if (userAnswer.equals("yes")) {
@@ -30,7 +30,7 @@ public class Even {
                     i++;
                     continue;
                 } else {
-                    System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.\n"
+                    System.out.println(userAnswer + " is wrong answer ;(. Correct answer was 'yes'.\n"
                             + "Let's try again, " + userName);
                     break;
                 }
@@ -41,14 +41,14 @@ public class Even {
                     i++;
                     continue;
                 } else {
-                    System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.\n"
+                    System.out.println(userAnswer + " is wrong answer ;(. Correct answer was 'no'.\n"
                             + "Let's try again, " + userName);
                     break;
                 }
             }
         }
 
-        if (count == 0) {
+        if (count == 3) {
             System.out.println("Congratulations, " + userName);
         }
 
