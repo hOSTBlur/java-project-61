@@ -22,6 +22,8 @@
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=hOSTBlur_java-project-61&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=hOSTBlur_java-project-61)
 
 
-### Asciinema link:
+### Asciinema link(Even):
 https://asciinema.org/a/L8Lhc4S65lZTN7UWSrewpSVrO
 
+### Asciinema link(Calc):
+https://asciinema.org/a/kkJoG9iEukAGnVfkPykGEcetZ
