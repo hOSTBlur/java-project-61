@@ -1,57 +1,34 @@
-package hexlet.code;
+package hexlet.code.games;
 
-import java.util.Scanner;
+import hexlet.code.Engine;
+
 import java.util.Random;
 
 public class Even {
-    public static void isEven() {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-        var count = 0; // Переменная для сч та верных ответов
-
-        System.out.println("Welcome to the Brian Game!");
-        System.out.print("May I have your name? ");
-        String userName = scanner.nextLine();
-        System.out.println("Hello, " + userName + "!");
-
+    public static void startGame() {
+        Engine.greetUser();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'");
+        String[] questions = questGenerator();
+        String[] answers = answerGenerator(questions);
+        Engine.runGame(questions, answers);
+    }
 
-        for (var i = 0; i < 3;) {
-            var questNum = random.nextInt(100);
-
-            System.out.println("Question: " + questNum);
-            System.out.print("Your answer: ");
-            String userAnswer = scanner.nextLine();
-
-            if (questNum % 2 == 0) {
-                if (userAnswer.equals("yes")) {
-                    System.out.println("Correct!");
-                    count++;
-                    i++;
-                    continue;
-                } else {
-                    System.out.println(userAnswer + " is wrong answer ;(. Correct answer was 'yes'.\n"
-                            + "Let's try again, " + userName);
-                    break;
-                }
-            } else {
-                if (userAnswer.equals("no")) {
-                    System.out.println("Correct!");
-                    count++;
-                    i++;
-                    continue;
-                } else {
-                    System.out.println(userAnswer + " is wrong answer ;(. Correct answer was 'no'.\n"
-                            + "Let's try again, " + userName);
-                    break;
-                }
-            }
+    public static String[] questGenerator() {
+        Random random = new Random();
+        String[] quest = new String[3];
+        for (var i = 0; i < 3; i++) {
+            quest[i] = String.valueOf(random.nextInt(100));
         }
+        return quest;
+    }
 
-        if (count == 3) {
-            System.out.println("Congratulations, " + userName);
+    public static String[] answerGenerator(String[] quest) {
+        String[] answers = new String[3];
+        for (var i = 0; i < 3; i++) {
+            int number = Integer.parseInt(quest[i]);
+            answers[i] = number % 2 == 0 ? "yes" : "no";
         }
-
-        scanner.close();
+        return answers;
     }
 }
+
