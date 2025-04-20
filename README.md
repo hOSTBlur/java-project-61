@@ -31,4 +31,7 @@ https://asciinema.org/a/kkJoG9iEukAGnVfkPykGEcet
 ### Asciinema link(GCD):
 https://asciinema.org/a/OsLUpuYwkh0XPv8AhyI5sL3Q3
 
+### Asciimena link(Progression):
+https://asciinema.org/a/BwTeEqVGkp2RETAGEaQYB4dyC
+
 

@@ -4,6 +4,7 @@
 
 #ignore configure or temporary file
 **.idea
+**.cast
 # Ignore bundler config.
 /.bundle
 
