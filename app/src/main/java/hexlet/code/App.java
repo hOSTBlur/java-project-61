@@ -1,5 +1,9 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+
 import java.util.Scanner;
 
 public class App {
@@ -10,25 +14,29 @@ public class App {
                 Please enter the game number and press Enter.
                 1 - Greet
                 2 - Even
+                3 - Calc
+                4 - GCD
                 0 - Exit""");
         System.out.print("Your choice: ");
         int userChoice = Integer.parseInt(scanner.nextLine());
         System.out.println();
         switch (userChoice) {
             case 1:
-                System.out.println("Welcome to the Brian Game!");
-                System.out.print("May I have your name? ");
-                String userName = scanner.nextLine();
-                System.out.println("Hello, " + userName + "!");
+                Engine.greetUser();
                 break;
             case 2:
-                Even.isEven();
-                //break;
+                Even.startGame();
+            case 3:
+                Calc.startGame();
+            case 4:
+                GCD.startGame();
             case 0:
                 break;
             default:
                 System.out.println("Incorrect choice, please try again");
+                break;
         }
 
+        scanner.close();
     }
 }
