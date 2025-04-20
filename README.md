@@ -26,4 +26,9 @@
 https://asciinema.org/a/L8Lhc4S65lZTN7UWSrewpSVrO
 
 ### Asciinema link(Calc):
-https://asciinema.org/a/kkJoG9iEukAGnVfkPykGEcetZ
+https://asciinema.org/a/kkJoG9iEukAGnVfkPykGEcet
+
+### Asciinema link(GCD):
+https://asciinema.org/a/OsLUpuYwkh0XPv8AhyI5sL3Q3
+
+
