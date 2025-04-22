@@ -8,18 +8,18 @@ public class Even {
     public static void startGame() {
         Engine.greetUser();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'");
-        String[] questions = questGenerator();
+        String[] questions = questionGenerator();
         String[] answers = answerGenerator(questions);
         Engine.runGame(questions, answers);
     }
 
-    public static String[] questGenerator() {
+    public static String[] questionGenerator() {
         Random random = new Random();
-        String[] quest = new String[3];
+        String[] question = new String[3];
         for (var i = 0; i < 3; i++) {
-            quest[i] = String.valueOf(random.nextInt(100));
+            question[i] = String.valueOf(random.nextInt(101));
         }
-        return quest;
+        return question;
     }
 
     public static String[] answerGenerator(String[] quest) {

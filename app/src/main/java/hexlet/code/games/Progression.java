@@ -18,9 +18,9 @@ public class Progression {
     public static String[] questGenerator() {
         String[] questions = new String[3];
         for (int i = 0; i < 3; i++) {
-            int length = ThreadLocalRandom.current().nextInt(5, 10 + 1);
-            int start = ThreadLocalRandom.current().nextInt(1, 20 + 1);
-            int step = ThreadLocalRandom.current().nextInt(1, 9 + 1);
+            int length = ThreadLocalRandom.current().nextInt(5, 11);
+            int start = ThreadLocalRandom.current().nextInt(1, 21);
+            int step = ThreadLocalRandom.current().nextInt(1, 10);
 
             StringBuilder progression = new StringBuilder();
             for (int j = 0; j < length; j++) {

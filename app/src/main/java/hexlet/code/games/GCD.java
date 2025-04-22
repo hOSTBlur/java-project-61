@@ -17,8 +17,8 @@ public class GCD {
         Random random = new Random();
         String[] questions = new String[3];
         for (int i = 0; i < 3; i++) {
-            int a = random.nextInt(100);
-            int b = random.nextInt(100);
+            int a = random.nextInt(101);
+            int b = random.nextInt(101);
             String combinedNumber = a + " " + b;
             questions[i] = combinedNumber;
         }

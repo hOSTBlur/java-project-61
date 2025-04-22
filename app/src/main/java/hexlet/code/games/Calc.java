@@ -19,8 +19,8 @@ public class Calc {
         String[] operations = {"+", "-", "*"};
 
         for (var i = 0; i < 3; i++) {
-            int a = random.nextInt(20) + 1;
-            int b = random.nextInt(20) + 1;
+            int a = random.nextInt(21);
+            int b = random.nextInt(21);
             int randomOperation = random.nextInt(3);
             questions[i] = a + " " + operations[randomOperation] + " " + b;
         }
