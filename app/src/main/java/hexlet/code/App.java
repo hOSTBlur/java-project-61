@@ -13,6 +13,7 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("""
+                Welcome to the Brian Game!
                 Please enter the game number and press Enter.
                 1 - Greet
                 2 - Even

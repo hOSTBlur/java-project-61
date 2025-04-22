@@ -8,7 +8,6 @@ public class Engine {
     private static String userName;
 
     public static void greetUser() {
-        System.out.println("Welcome to the Brian Game!");
         System.out.print("May I have your name? ");
         userName = SCANNER.nextLine();
         System.out.println("Hello, " + userName + "!");
