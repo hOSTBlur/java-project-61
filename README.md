@@ -34,4 +34,5 @@ https://asciinema.org/a/OsLUpuYwkh0XPv8AhyI5sL3Q3
 ### Asciimena link(Progression):
 https://asciinema.org/a/BwTeEqVGkp2RETAGEaQYB4dyC
 
-
+### Asciinema link(Prime):
+https://asciinema.org/a/EMXGdNxCnNUknoayto3XiuRSm
