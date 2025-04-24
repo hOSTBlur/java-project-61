@@ -2,6 +2,17 @@ plugins {
     id("java")
     application
     checkstyle
+    id("org.sonarqube") version "6.0.1.5171"
+}
+sonar {
+    properties {
+        property("sonar.projectKey")
+        property("sonar.organization")
+        property("sonar.host.url")
+        property("https://sonarcloud.io")
+        property("hostblur")
+        property("hOSTBlur_java-project-61")
+    }
 }
 
 group = "hexlet.code"
@@ -32,3 +43,4 @@ checkstyle {
     toolVersion = "10.12.5"  // Актуальная версия
     configFile = file("config/checkstyle/checkstyle.xml")  // Путь к конфигу
 }
+
