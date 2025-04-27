@@ -29,17 +29,21 @@ public class Prime {
     }
 
     private static boolean isPrime(int number) {
-        if (number <= 1) {
+        int firstNotPrimeNumber = 1;
+        int secondNotPrimeNumber = 3;
+        int startCheckPrime = 5;
+        int stepCheckPrime = 6;
+        if (number <= firstNotPrimeNumber) {
             return false;
         }
-        if (number <= 3) {
+        if (number <= secondNotPrimeNumber) {
             return true;
         }
         if (number % 2 == 0 || number % 3 == 0) {
             return false;
         }
 
-        for (int i = 5; i * i <= number; i += 6) {
+        for (int i = startCheckPrime; i * i <= number; i += stepCheckPrime) {
             if (number % i == 0 || number % (i + 2) == 0) {
                 return false;
             }
