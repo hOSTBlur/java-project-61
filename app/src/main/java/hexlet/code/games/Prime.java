@@ -33,18 +33,21 @@ public class Prime {
         int secondNotPrimeNumber = 3;
         int startCheckPrime = 5;
         int stepCheckPrime = 6;
+        int firstPrimeFactor = 2;
+        int secondPrimeFactor = 3;
+        int pairCheck = 2;
         if (number <= firstNotPrimeNumber) {
             return false;
         }
         if (number <= secondNotPrimeNumber) {
             return true;
         }
-        if (number % 2 == 0 || number % 3 == 0) {
+        if (number % firstPrimeFactor == 0 || number % secondPrimeFactor == 0) {
             return false;
         }
 
         for (int i = startCheckPrime; i * i <= number; i += stepCheckPrime) {
-            if (number % i == 0 || number % (i + 2) == 0) {
+            if (number % i == 0 || number % (i + pairCheck) == 0) {
                 return false;
             }
         }
