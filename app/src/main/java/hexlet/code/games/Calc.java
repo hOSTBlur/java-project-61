@@ -10,8 +10,9 @@ public class Calc {
     private static final String GAME_RULE = "What is the result of the expression?";
 
     public static void startGame() {
-        String[] questions = questAndAnswerGenerator()[0];
-        String[] answers = questAndAnswerGenerator()[1];
+        String[][] dataStorage = questAndAnswerGenerator();
+        String[] questions = dataStorage[0];
+        String[] answers = dataStorage[1];
         Engine.runGame(GAME_RULE, questions, answers);
     }
 

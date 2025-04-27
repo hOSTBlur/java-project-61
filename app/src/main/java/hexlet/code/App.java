@@ -34,7 +34,7 @@ public class App {
                 break;
             case "2":
                 Even.startGame();
-                break;
+                //break;
             case "3":
                 Calc.startGame();
                 break;

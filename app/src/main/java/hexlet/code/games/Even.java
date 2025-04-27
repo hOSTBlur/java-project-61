@@ -9,8 +9,9 @@ public class Even {
     private static final String GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static void startGame() {
-        String[] questions = questionAndAnswerGenerator()[0];
-        String[] answers = questionAndAnswerGenerator()[1];
+        String[][] dataStorage = questionAndAnswerGenerator();
+        String[] questions = dataStorage[0];
+        String[] answers = dataStorage[1];
         Engine.runGame(GAME_RULE, questions, answers);
     }
 

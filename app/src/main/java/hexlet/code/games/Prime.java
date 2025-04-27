@@ -9,28 +9,22 @@ public class Prime {
     private static final String GAME_RULE = "Answer 'yes' if the number is prime. Otherwise answer 'no'";
 
     public static void startGame() {
-        String[] questions = questionGenerator();
-        String[] answers = answerGenerator(questions);
+        String[][] dataStorage = questionAndAnswerGenerator();
+        String[] questions = dataStorage[0];
+        String[] answers = dataStorage[1];
         Engine.runGame(GAME_RULE, questions, answers);
     }
 
-    public static String[] questionGenerator() {
+    public static String[][] questionAndAnswerGenerator() {
         Random random = new Random();
-        String[] question = new String[ROUND_COUNT];
-        for (var i = 0; i < ROUND_COUNT; i++) {
-
-            question[i] = String.valueOf(random.nextInt(101));
-        }
-        return question;
-    }
-
-    public static String[] answerGenerator(String[] questions) {
+        String[] questions = new String[ROUND_COUNT];
         String[] answers = new String[ROUND_COUNT];
-        for (int i = 0; i < 3; i++) {
-            int number = Integer.parseInt(questions[i]);
+        for (var i = 0; i < ROUND_COUNT; i++) {
+            int number = random.nextInt(101);
+            questions[i] = String.valueOf(number);
             answers[i] = isPrime(number) ? "yes" : "no";
         }
-        return answers;
+        return new String[][]{questions, answers};
     }
 
     private static boolean isPrime(int number) {
