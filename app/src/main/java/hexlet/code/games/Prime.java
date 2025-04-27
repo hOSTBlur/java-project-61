@@ -29,25 +29,25 @@ public class Prime {
     }
 
     private static boolean isPrime(int number) {
-        int firstNotPrimeNumber = 1;
-        int secondNotPrimeNumber = 3;
-        int startCheckPrime = 5;
-        int stepCheckPrime = 6;
-        int firstPrimeFactor = 2;
-        int secondPrimeFactor = 3;
-        int pairCheck = 2;
-        if (number <= firstNotPrimeNumber) {
+        final int FIRST_NON_PRIME = 1;
+        final int SECOND_NON_PRIME = 3;
+        final int PRIME_CHECK_START = 5;
+        final int PRIME_CHECK_STEP = 6;
+        final int FIRST_PRIME_FACTOR = 2;
+        final int SECOND_PRIME_FACTOR = 3;
+        final int PAIR_CHECK = 2;
+        if (number <= FIRST_NON_PRIME) {
             return false;
         }
-        if (number <= secondNotPrimeNumber) {
+        if (number <= SECOND_NON_PRIME) {
             return true;
         }
-        if (number % firstPrimeFactor == 0 || number % secondPrimeFactor == 0) {
+        if (number % FIRST_PRIME_FACTOR == 0 || number % SECOND_PRIME_FACTOR == 0) {
             return false;
         }
 
-        for (int i = startCheckPrime; i * i <= number; i += stepCheckPrime) {
-            if (number % i == 0 || number % (i + pairCheck) == 0) {
+        for (int i = PRIME_CHECK_START; i * i <= number; i += PRIME_CHECK_STEP) {
+            if (number % i == 0 || number % (i + PAIR_CHECK) == 0) {
                 return false;
             }
         }
