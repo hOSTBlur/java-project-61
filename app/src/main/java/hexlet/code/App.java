@@ -34,14 +34,19 @@ public class App {
                 break;
             case "2":
                 Even.startGame();
+                break;
             case "3":
                 Calc.startGame();
+                break;
             case "4":
                 GCD.startGame();
+                break;
             case "5":
                 Progression.startGame();
+                break;
             case "6":
                 Prime.startGame();
+                break;
             case "0":
                 break;
             default:
