@@ -18,15 +18,14 @@ public class GCD {
     public static String[][] questAndAnswerGenerator() {
         Random random = new Random();
         String[] questions = new String[ROUND_COUNT];
-        String[] answer = new String[ROUND_COUNT];
+        String[] answers = new String[ROUND_COUNT];
         for (int i = 0; i < ROUND_COUNT; i++) {
             int a = random.nextInt(101);
             int b = random.nextInt(101);
-            String combinedNumber = a + " " + b;
-            questions[i] = combinedNumber;
-            answer[i] = String.valueOf(calculatedAnswer(a, b));
+            questions[i] = a + " " + b;
+            answers[i] = String.valueOf(calculatedAnswer(a, b));
         }
-        return new String[][]{questions, answer};
+        return new String[][]{questions, answers};
     }
 
     public static int calculatedAnswer(int a, int b) {
