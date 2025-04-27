@@ -36,6 +36,6 @@ tasks.getByName("run", JavaExec::class) {
 }
 
 checkstyle {
-    toolVersion = "10.12.7"  // Актуальная версия
+    toolVersion = "10.12.5"  // Актуальная версия
     configFile = file("config/checkstyle/checkstyle.xml")  // Путь к конфигу
 }
