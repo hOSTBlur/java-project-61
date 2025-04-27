@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Even {
     private static final int ROUND_COUNT = 3;
-    private static final String GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'";
+    private static final String GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static void startGame() {
         String[] questions = questionAndAnswerGenerator()[0];
