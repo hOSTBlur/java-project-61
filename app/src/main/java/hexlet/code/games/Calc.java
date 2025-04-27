@@ -33,7 +33,7 @@ public class Calc {
                 case "*" -> a * b;
                 default -> 0;
             };
-            questions[i] = String.valueOf(result);
+            answers[i] = String.valueOf(result);
         }
         return new String[][]{questions, answers};
     }

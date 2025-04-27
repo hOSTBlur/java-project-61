@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Prime {
     private static final int ROUND_COUNT = 3;
-    private static final String GAME_RULE = "Answer 'yes' if the number is prime. Otherwise answer 'no'";
+    private static final String GAME_RULE = "Answer 'yes' if the number is prime. Otherwise answer 'no'.";
 
     public static void startGame() {
         String[][] dataStorage = questionAndAnswerGenerator();
