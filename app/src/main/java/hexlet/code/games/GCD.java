@@ -23,19 +23,19 @@ public class GCD {
             int b = random.nextInt(101);
             String combinedNumber = a + " " + b;
             questions[i] = combinedNumber;
-            answer[i] = String.valueOf(calculatedAnswer(a,b));
+            answer[i] = String.valueOf(calculatedAnswer(a, b));
         }
         return new String[][]{questions, answer};
     }
 
     public static int calculatedAnswer(int a, int b) {
-            while (a != b) {
-                if (a > b) {
-                    a = a - b;
-                } else {
-                    b = b - a;
-                }
+        while (a != b) {
+            if (a > b) {
+                a = a - b;
+            } else {
+                b = b - a;
             }
+        }
         return a;
     }
 }
