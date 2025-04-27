@@ -7,6 +7,13 @@ import java.util.Random;
 public class Prime {
     private static final int ROUND_COUNT = 3;
     private static final int MAX_RANGE = 101;
+    static final int FIRST_NON_PRIME = 1;
+    static final int SECOND_NON_PRIME = 3;
+    static final int PRIME_CHECK_START = 5;
+    static final int PRIME_CHECK_STEP = 6;
+    static final int FIRST_PRIME_FACTOR = 2;
+    static final int SECOND_PRIME_FACTOR = 3;
+    static final int PAIR_CHECK = 2;
     private static final String GAME_RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static void startGame() {
@@ -29,13 +36,6 @@ public class Prime {
     }
 
     private static boolean isPrime(int number) {
-        final int FIRST_NON_PRIME = 1;
-        final int SECOND_NON_PRIME = 3;
-        final int PRIME_CHECK_START = 5;
-        final int PRIME_CHECK_STEP = 6;
-        final int FIRST_PRIME_FACTOR = 2;
-        final int SECOND_PRIME_FACTOR = 3;
-        final int PAIR_CHECK = 2;
         if (number <= FIRST_NON_PRIME) {
             return false;
         }
