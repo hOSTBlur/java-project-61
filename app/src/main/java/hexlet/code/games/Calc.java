@@ -5,50 +5,36 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Calc {
+    private static final int ROUND_COUNT = 3;
+    private static final String[] MATH_OPERATOR = {"+", "-", "*"};
+    private static final String GAME_RULE = "What is the result of the expression?";
+
     public static void startGame() {
-        Engine.greetUser();
-        System.out.println("What is the result of the expression?");
-        String[] questions = questGenerator();
-        String[] answers = answerGenerator(questions);
-        Engine.runGame(questions, answers);
+        String[] questions = questAndAnswerGenerator()[0];
+        String[] answers = questAndAnswerGenerator()[1];
+        Engine.runGame(GAME_RULE, questions, answers);
     }
 
-    public static String[] questGenerator() {
+    public static String[][] questAndAnswerGenerator() {
         Random random = new Random();
-        String[] questions = new String[3];
-        String[] operations = {"+", "-", "*"};
+        String[] questions = new String[ROUND_COUNT];
+        String[] answers = new String[ROUND_COUNT];
 
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < ROUND_COUNT; i++) {
             int a = random.nextInt(21);
             int b = random.nextInt(21);
             int randomOperation = random.nextInt(3);
-            questions[i] = a + " " + operations[randomOperation] + " " + b;
+            questions[i] = a + " " + MATH_OPERATOR[randomOperation] + " " + b;
+            String operator = MATH_OPERATOR[randomOperation];
+            int result = switch (operator) {
+                case "+" -> a + b;
+                case "-" -> a - b;
+                case "*" -> a * b;
+                default -> 0;
+            };
+            questions[i] = String.valueOf(result);
         }
-        return questions;
+        return new String[][]{questions, answers};
     }
 
-    public static String[] answerGenerator(String[] questions) {
-        String[] answers = new String[3];
-        for (var i = 0; i < 3; i++) {
-            String[] parts = questions[i].split(" ");
-            int a = Integer.parseInt(parts[0]);
-            int b = Integer.parseInt(parts[2]);
-            String operator = parts[1];
-            switch (operator) {
-                case "+":
-                    answers[i] = String.valueOf(a + b);
-                    break;
-                case "-":
-                    answers[i] = String.valueOf(a - b);
-                    break;
-                case "*":
-                    answers[i] = String.valueOf(a * b);
-                    break;
-                default:
-                    answers[i] = String.valueOf(0);
-                    break;
-            }
-        }
-        return answers;
-    }
 }
