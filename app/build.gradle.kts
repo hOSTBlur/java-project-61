@@ -5,12 +5,9 @@ plugins {
 }
 sonar {
     properties {
-        property("sonar.projectKey")
-        property("sonar.organization")
-        property("sonar.host.url")
-        property("https://sonarcloud.io")
-        property("hostblur")
-        property("hOSTBlur_java-project-61")
+        property("sonar.projectKey", "hOSTBlur_java-project-61")
+        property("sonar.organization", "hostblur")
+        property("sonar.host.url", "https://sonarcloud.io")
     }
 }
 
@@ -39,7 +36,6 @@ tasks.getByName("run", JavaExec::class) {
 }
 
 checkstyle {
-    toolVersion = "10.12.5"  // Актуальная версия
+    toolVersion = "10.12.7"  // Актуальная версия
     configFile = file("config/checkstyle/checkstyle.xml")  // Путь к конфигу
 }
-
