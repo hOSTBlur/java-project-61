@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class Calc {
     private static final int ROUND_COUNT = 3;
+    private static final int MAX_RANGE_OF_CALCULATOR = 21;
     private static final String[] MATH_OPERATOR = {"+", "-", "*"};
     private static final String GAME_RULE = "What is the result of the expression?";
 
@@ -22,8 +23,8 @@ public class Calc {
         String[] answers = new String[ROUND_COUNT];
 
         for (var i = 0; i < ROUND_COUNT; i++) {
-            int a = random.nextInt(21);
-            int b = random.nextInt(21);
+            int a = random.nextInt(MAX_RANGE_OF_CALCULATOR);
+            int b = random.nextInt(MAX_RANGE_OF_CALCULATOR);
             int randomOperation = random.nextInt(3);
             questions[i] = a + " " + MATH_OPERATOR[randomOperation] + " " + b;
             String operator = MATH_OPERATOR[randomOperation];

@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class Even {
     private static final int ROUND_COUNT = 3;
+    private static final int MAX_RANGE = 101;
     private static final String GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static void startGame() {
@@ -20,7 +21,7 @@ public class Even {
         String[] questions = new String[ROUND_COUNT];
         String[] answers = new String[ROUND_COUNT];
         for (var i = 0; i < ROUND_COUNT; i++) {
-            int number = random.nextInt(101);
+            int number = random.nextInt(MAX_RANGE);
             questions[i] = String.valueOf(number);
             answers[i] = number % 2 == 0 ? "yes" : "no";
         }

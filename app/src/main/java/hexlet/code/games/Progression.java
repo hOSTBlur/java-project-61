@@ -7,6 +7,12 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Progression {
     private static final int ROUND_COUNT = 3;
+    private static final int MIN_RANGE_OF_PROGRESSION = 5;
+    private static final int MAX_RANGE_OF_PROGRESSION = 11;
+    private static final int MIN_START_PROGRESSION = 1;
+    private static final int MAX_START_PROGRESSION = 21;
+    private static final int MIN_STEP_PROGRESSION = 1;
+    private static final int MAX_STEP_PROGRESSION = 10;
     private static final String GAME_RULE = "What number is missing in the progression?";
 
     public static void startGame() {
@@ -19,9 +25,9 @@ public class Progression {
     public static String[] questGenerator() {
         String[] questions = new String[ROUND_COUNT];
         for (int i = 0; i < ROUND_COUNT; i++) {
-            int length = ThreadLocalRandom.current().nextInt(5, 11);
-            int start = ThreadLocalRandom.current().nextInt(1, 21);
-            int step = ThreadLocalRandom.current().nextInt(1, 10);
+            int length = ThreadLocalRandom.current().nextInt(MIN_RANGE_OF_PROGRESSION, MAX_RANGE_OF_PROGRESSION);
+            int start = ThreadLocalRandom.current().nextInt(MIN_START_PROGRESSION, MAX_START_PROGRESSION);
+            int step = ThreadLocalRandom.current().nextInt(MIN_STEP_PROGRESSION, MAX_STEP_PROGRESSION);
 
             StringBuilder progression = new StringBuilder();
             for (int j = 0; j < length; j++) {
