@@ -5,7 +5,6 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Prime {
-    private static final int ROUND_COUNT = 3;
     private static final int MAX_RANGE = 101;
     static final int FIRST_NON_PRIME = 1;
     static final int SECOND_NON_PRIME = 3;
@@ -25,10 +24,10 @@ public class Prime {
 
     public static String[][] questionAndAnswerGenerator() {
         Random random = new Random();
-        String[] questions = new String[ROUND_COUNT];
-        String[] answers = new String[ROUND_COUNT];
-        for (var i = 0; i < ROUND_COUNT; i++) {
-            int number = random.nextInt(MAX_RANGE);
+        String[] questions = new String[Engine.getRoundCount()];
+        String[] answers = new String[Engine.getRoundCount()];
+        for (var i = 0; i < Engine.getRoundCount(); i++) {
+            var number = random.nextInt(MAX_RANGE);
             questions[i] = String.valueOf(number);
             answers[i] = isPrime(number) ? "yes" : "no";
         }
@@ -46,7 +45,7 @@ public class Prime {
             return false;
         }
 
-        for (int i = PRIME_CHECK_START; i * i <= number; i += PRIME_CHECK_STEP) {
+        for (var i = PRIME_CHECK_START; i * i <= number; i += PRIME_CHECK_STEP) {
             if (number % i == 0 || number % (i + PAIR_CHECK) == 0) {
                 return false;
             }

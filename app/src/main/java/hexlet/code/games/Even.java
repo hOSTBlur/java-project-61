@@ -5,7 +5,6 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Even {
-    private static final int ROUND_COUNT = 3;
     private static final int MAX_RANGE = 101;
     private static final String GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
@@ -18,10 +17,10 @@ public class Even {
 
     public static String[][] questionAndAnswerGenerator() {
         Random random = new Random();
-        String[] questions = new String[ROUND_COUNT];
-        String[] answers = new String[ROUND_COUNT];
-        for (var i = 0; i < ROUND_COUNT; i++) {
-            int number = random.nextInt(MAX_RANGE);
+        String[] questions = new String[Engine.getRoundCount()];
+        String[] answers = new String[Engine.getRoundCount()];
+        for (var i = 0; i < Engine.getRoundCount(); i++) {
+            var number = random.nextInt(MAX_RANGE);
             questions[i] = String.valueOf(number);
             answers[i] = number % 2 == 0 ? "yes" : "no";
         }

@@ -5,24 +5,23 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class GCD {
-    private static final int ROUND_COUNT = 3;
     private static final int MAX_RANGE = 101;
     private static final String GAME_RULE = "Find the greatest common divisor of given numbers.";
 
     public static void startGame() {
-        String[][] dataStorage = questAndAnswerGenerator();
+        String[][] dataStorage = questionAndAnswerGenerator();
         String[] questions = dataStorage[0];
         String[] answers = dataStorage[1];
         Engine.runGame(GAME_RULE, questions, answers);
     }
 
-    public static String[][] questAndAnswerGenerator() {
+    public static String[][] questionAndAnswerGenerator() {
         Random random = new Random();
-        String[] questions = new String[ROUND_COUNT];
-        String[] answers = new String[ROUND_COUNT];
-        for (int i = 0; i < ROUND_COUNT; i++) {
-            int a = random.nextInt(MAX_RANGE);
-            int b = random.nextInt(MAX_RANGE);
+        String[] questions = new String[Engine.getRoundCount()];
+        String[] answers = new String[Engine.getRoundCount()];
+        for (var i = 0; i < Engine.getRoundCount(); i++) {
+            var a = random.nextInt(MAX_RANGE);
+            var b = random.nextInt(MAX_RANGE);
             questions[i] = a + " " + b;
             answers[i] = String.valueOf(calculatedAnswer(a, b));
         }

@@ -6,14 +6,18 @@ public class Engine {
     private static final int ROUND_COUNT = 3;
     private static final Scanner SCANNER = new Scanner(System.in);
 
+    public static int getRoundCount() {
+        return ROUND_COUNT;
+    }
+
     public static void runGame(String gameRule, String[] questions, String[] correctAnswer) {
-        int count = 0;
+        var count = 0;
         System.out.println("Welcome to the Brain Game!");
         System.out.println(gameRule);
         System.out.print("May I have your name? ");
         String userName = SCANNER.nextLine();
         System.out.println("Hello, " + userName + "!");
-        for (int i = 0; i < ROUND_COUNT; i++) {
+        for (var i = 0; i < ROUND_COUNT; i++) {
             System.out.println("Question: " + questions[i]);
             System.out.print("Your answer: ");
             String userAnswer = SCANNER.nextLine();

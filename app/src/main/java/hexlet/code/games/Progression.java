@@ -3,10 +3,9 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Progression {
-    private static final int ROUND_COUNT = 3;
+    private static final Random RANDOM = new Random();
     private static final int MIN_RANGE_OF_PROGRESSION = 5;
     private static final int MAX_RANGE_OF_PROGRESSION = 11;
     private static final int MIN_START_PROGRESSION = 1;
@@ -16,54 +15,37 @@ public class Progression {
     private static final String GAME_RULE = "What number is missing in the progression?";
 
     public static void startGame() {
-        String[] questions = questGenerator();
-        String[] hiddenNumbers = hideIndex(questions);
-        String[] answers = answerGenerator(questions, hiddenNumbers);
-        Engine.runGame(GAME_RULE, hiddenNumbers, answers);
+        String[][] dataStorage = questionAndAnswerGenerator();
+        String[] questions = dataStorage[0];
+        String[] answers = dataStorage[1];
+        Engine.runGame(GAME_RULE, questions, answers);
     }
 
-    public static String[] questGenerator() {
-        String[] questions = new String[ROUND_COUNT];
-        for (int i = 0; i < ROUND_COUNT; i++) {
-            int length = ThreadLocalRandom.current().nextInt(MIN_RANGE_OF_PROGRESSION, MAX_RANGE_OF_PROGRESSION);
-            int start = ThreadLocalRandom.current().nextInt(MIN_START_PROGRESSION, MAX_START_PROGRESSION);
-            int step = ThreadLocalRandom.current().nextInt(MIN_STEP_PROGRESSION, MAX_STEP_PROGRESSION);
+    public static String[][] questionAndAnswerGenerator() {
+        String[] questions = new String[Engine.getRoundCount()];
+        String[] answers = new String[Engine.getRoundCount()];
+        for (var i = 0; i < Engine.getRoundCount(); i++) {
+            var length = RANDOM.nextInt(MIN_RANGE_OF_PROGRESSION, MAX_RANGE_OF_PROGRESSION);
+            var start = RANDOM.nextInt(MIN_START_PROGRESSION, MAX_START_PROGRESSION);
+            var step = RANDOM.nextInt(MIN_STEP_PROGRESSION, MAX_STEP_PROGRESSION);
 
             StringBuilder progression = new StringBuilder();
-            for (int j = 0; j < length; j++) {
-                progression.append(start + step * j).append(" ");
+            int[] progressions = new int[length];
+            for (var j = 0; j < length; j++) {
+                progressions[j] = start + step * j;
+                progression.append(progressions[j]).append(" ");
             }
-            questions[i] = progression.toString().trim();
+            String progressionString = progression.toString().trim();
+
+            var hiddenPosition = RANDOM.nextInt(length);
+            answers[i] = String.valueOf(progressions[hiddenPosition]);
+            String[] numbers = progressionString.split(" ");
+            numbers[hiddenPosition] = "..";
+            questions[i] = String.join(" ", numbers);
+
         }
-        return questions;
+
+        return new String[][]{questions, answers};
     }
 
-    public static String[] hideIndex(String[] questions) {
-        String[] questWithHiddenIndex = new String[ROUND_COUNT];
-        Random random = new Random();
-
-        for (int i = 0; i < ROUND_COUNT; i++) {
-            String[] numbers = questions[i].split(" ");
-            int hiddenPos = random.nextInt(numbers.length);
-            numbers[hiddenPos] = "..";
-            questWithHiddenIndex[i] = String.join(" ", numbers);
-        }
-        return questWithHiddenIndex;
-    }
-
-    public static String[] answerGenerator(String[] questions, String[] hiddenNumbers) {
-        String[] answers = new String[ROUND_COUNT];
-        for (int i = 0; i < ROUND_COUNT; i++) {
-            String[] original = questions[i].split(" ");
-            String[] hidden = hiddenNumbers[i].split(" ");
-
-            for (int j = 0; j < original.length; j++) {
-                if (!original[j].equals(hidden[j])) {
-                    answers[i] = original[j];
-                    break;
-                }
-            }
-        }
-        return answers;
-    }
 }

@@ -9,8 +9,15 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
+    private static final Scanner SCANNER = new Scanner(System.in);
+
+    private static void greetUser() {
+        System.out.println("Welcome to the Brain Game!");
+        System.out.print("May I have your name? ");
+        String userName = SCANNER.nextLine();
+        System.out.println("Hello, " + userName + "!");
+    }
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("/Welcome to the Brain Games!/");
         System.out.println("""
@@ -23,14 +30,11 @@ public class App {
                 6 - Prime
                 0 - Exit""");
         System.out.print("Your choice: ");
-        String userChoice = scanner.nextLine();
+        String userChoice = SCANNER.nextLine();
         System.out.println();
         switch (userChoice) {
             case "1":
-                System.out.println("Welcome to the Brain Game!");
-                System.out.print("May I have your name? ");
-                String userName = scanner.nextLine();
-                System.out.println("Hello, " + userName + "!");
+                greetUser();
                 break;
             case "2":
                 Even.startGame();
@@ -54,6 +58,6 @@ public class App {
                 break;
         }
 
-        scanner.close();
+        SCANNER.close();
     }
 }
